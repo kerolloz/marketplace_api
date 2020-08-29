@@ -7,13 +7,14 @@ class OrderTest < ActiveSupport::TestCase
     @product2 = products(:two)
   end
 
-  test 'should calculate total according to provided products' do
+  test 'should calculate total according to provided products and their quantity' do
     order = Order.new user_id: @order.user_id
     order.products << products(:one)
     order.products << products(:two)
     order.save
 
-    assert_equal (@product1.price + @product2.price), order.total
+    expected_price = @product1.price * @product1.quantity + @product2.price * @product2.quantity
+    assert_equal expected_price, order.total
   end
 
   test 'builds 2 placements for the order' do

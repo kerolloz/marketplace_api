@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   has_many :products, through: :placements
 
   def calculate_total
-    self.total = products.sum(&:price)
+    self.total = products.sum { |product| product.price * product.quantity }
   end
 
   def build_placements_with_product_ids_and_quantities(product_ids_and_quantities)
