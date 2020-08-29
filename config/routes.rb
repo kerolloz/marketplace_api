@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :users, only: %i[show create update destroy]
       resources :tokens, only: [:create]
       resources :products, only: %i[show index create update destroy]
-      resources :orders, only: [:index]
+      resources :orders, only: %i[index show]
     end
   end
 end
