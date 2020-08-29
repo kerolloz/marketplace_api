@@ -26,4 +26,10 @@ class OrderTest < ActiveSupport::TestCase
       @order.save
     end
   end
+
+  test 'should not allow to place an order with product quantity more than available' do
+    @order.placements << Placement.new(product_id: @product1.id, quantity: (@product1.quantity + 1))
+
+    assert_not @order.valid?
+  end
 end
