@@ -1,8 +1,12 @@
 class Api::V1::OrdersController < ApplicationController
+  include Paginable
+
   before_action :check_login
 
   def index
-    render json: OrderSerializer.new(current_user.orders).serializable_hash
+    @orders = current_user.orders.page(current_page).per(per_page)
+    options = get_pagination_links_serializer_options('api_v1_orders_url', @orders)
+    render json: OrderSerializer.new(@orders, options).serializable_hash
   end
 
   def show

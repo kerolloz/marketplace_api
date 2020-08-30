@@ -18,6 +18,9 @@ class Api::V1::ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'should show products' do
     get api_v1_products_url, as: :json
     assert_response :success
+
+    json_response = JSON.parse(response.body, symbolize_names: true)
+    assert_json_response_is_paginated json_response
   end
 
   test 'should create product' do

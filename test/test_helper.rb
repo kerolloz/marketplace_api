@@ -9,5 +9,12 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def assert_json_response_is_paginated(json_response)
+    assert_not_nil json_response.dig(:links, :first)
+    assert_not_nil json_response.dig(:links, :last)
+    assert_not_nil json_response.dig(:links, :next)
+    assert_not_nil json_response.dig(:links, :prev)
+  end
+
   # Add more helper methods to be used by all tests here...
 end
