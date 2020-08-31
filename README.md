@@ -1,5 +1,8 @@
 # Marketplace API
 
+![Github actions](https://github.com/kerolloz/marketplace_api/workflows/Rails%20Tests/badge.svg
+)
+
 This is the Marketplace API for [*API On Rails*](https://leanpub.com/apionrails6) book.
 
 ## Getting started
