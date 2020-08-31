@@ -1,24 +1,38 @@
-# README
+# Marketplace API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the Marketplace API for [*API On Rails*](https://leanpub.com/apionrails6) book.
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+To get started with the app, **clone** the repo and then install the needed gems:
 
-* System dependencies
+```bash
+bundle install
+```
 
-* Configuration
+Next, migrate the database:
 
-* Database creation
+```bash
+rails db:migrate
+```
 
-* Database initialization
+Finally, run the test suite to verify that everything is working correctly:
 
-* How to run the test suite
+```bash
+rails test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* Deployment instructions
+```bash
+rails server
+```
 
-* ...
+
+## Database Schema
+
+<div align="center">
+
+  ![database schema](./schema.png)
+
+</div>
